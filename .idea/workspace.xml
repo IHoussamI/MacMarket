@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="36e502e3-a6d4-4f04-ba94-9990d7aee060" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/BACK-END/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACK-END/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACK-END/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACK-END/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACK-END/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACK-END/src/main/java/angularproj/ecommerce/ECommerceApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACK-END/src/main/java/angularproj/ecommerce/HttpMethodFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACK-END/src/main/java/angularproj/ecommerce/Orders/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACK-END/src/main/java/angularproj/ecommerce/Orders/OrderItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACK-END/src/main/java/angularproj/ecommerce/Orders/OrderItemRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACK-END/src/main/java/angularproj/ecommerce/Orders/OrdersRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACK-END/src/main/java/angularproj/ecommerce/Products/ProductRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACK-END/src/main/java/angularproj/ecommerce/Products/Products.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACK-END/src/main/java/angularproj/ecommerce/Products/ProductsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACK-END/src/main/java/angularproj/ecommerce/Users/Users.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACK-END/src/main/java/angularproj/ecommerce/Users/UsersController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACK-END/src/main/java/angularproj/ecommerce/Users/UsersRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACK-END/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACK-END/src/test/java/angularproj/ecommerce/ECommerceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONT-END/ecommerce-frontend/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/FRONT-END/ecommerce-frontend/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONT-END/ecommerce-frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/FRONT-END/ecommerce-frontend/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONT-END/ecommerce-frontend/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FRONT-END/ecommerce-frontend/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONT-END/ecommerce-frontend/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FRONT-END/ecommerce-frontend/src/app/app.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONT-END/ecommerce-frontend/src/app/app.routes.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONT-END/ecommerce-frontend/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/FRONT-END/ecommerce-frontend/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONT-END/ecommerce-frontend/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FRONT-END/ecommerce-frontend/src/main.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/BACK-END" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="proportion" value="0.47975078" />
+    <option name="selectedTabId" value="CurrentFile" />
+    <option name="showPreview" value="true" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2lTjAGivWEdW30NnrZyZfPKlWQm" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.ECommerceApplication.executor": "Run",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "C:/Users/hp/Desktop/road to master java/spring boot angular/e-commerce/src/test/java/angularproj/ecommerce",
+    "last_opened_file_path": "C:/Users/hp/Desktop/road to master java/spring boot angular/e-commerce/BACK-END",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "ts.external.directory.path": "C:\\Users\\hp\\Desktop\\road to master java\\spring boot angular\\e-commerce\\FrontEnd-Ecommerce\\angular-ecommerce\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="angularproj.ecommerce.Users" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\hp\Desktop\road to master java\spring boot angular\e-commerce\BACK-END" />
+      <recent name="C:\Users\hp\Desktop\road to master java\spring boot angular\e-commerce\FRONT-END\ecommerce-frontend" />
+      <recent name="C:\Users\hp\Desktop\road to master java\spring boot angular\e-commerce\BACK-END\src" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="angularproj.ecommerce" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="ECommerceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="e-commerce" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="angularproj.ecommerce.ECommerceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.10-graalvm-jdk-17.0.10-4caba194b151-6d8b2ca1" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="36e502e3-a6d4-4f04-ba94-9990d7aee060" name="Changes" comment="" />
+      <created>1725210817442</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1725210817442</updated>
+      <workItem from="1725210818500" duration="1774000" />
+      <workItem from="1725246338857" duration="944000" />
+      <workItem from="1725247333798" duration="370000" />
+      <workItem from="1725247752518" duration="2119000" />
+      <workItem from="1725297717358" duration="1505000" />
+      <workItem from="1725299289920" duration="281000" />
+      <workItem from="1725299770568" duration="19115000" />
+      <workItem from="1725761134147" duration="7446000" />
+      <workItem from="1726417416626" duration="3100000" />
+      <workItem from="1726767912299" duration="13186000" />
+      <workItem from="1728754859374" duration="314000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
