@@ -12,6 +12,7 @@ MacMarket est une plateforme de commerce électronique construite avec **Angular
 - **Gestion des Utilisateurs** : Système d'inscription et de connexion sécurisé.
 - **Panier d'Achat** : Fonctionnalité de panier pour faciliter le processus d'achat.
 - **Système de Paiement** : Intégration avec des solutions de paiement sécurisées.
+- **Authentification** : Utilisation de JWT pour sécuriser l'accès des utilisateurs et gérer les sessions.
 
 ## Prérequis
 
