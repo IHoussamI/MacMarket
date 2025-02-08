@@ -1,0 +1,40 @@
+<header>
+  <nav class="navbar">
+    <div class="menu-icon" (click)="toggleMenu()">
+      <img src="menu-icon.png" alt="Menu Icon">
+    </div>
+    <ul class="nav-links" [class.open]="menuOpen">
+      <li><a routerLink="/home" (click)="closeMenu()">Home</a></li>
+      <li><a routerLink="/products" (click)="closeMenu()">Products</a></li>
+      <li><a routerLink="/about-us" (click)="closeMenu()">About Us</a></li>
+      <li><a routerLink="/contact" (click)="closeMenu()">Contact Us</a></li>
+    </ul>
+    <div class="logo">
+      <a class="button" routerLink="home" data-text="Awesome">
+        <span class="actual-text">&nbsp;MacMarket&nbsp;</span>
+        <span aria-hidden="true" class="hover-text">&nbsp;MacMarket&nbsp;</span>
+      </a>
+    </div>
+    <div class="icons">
+      <ng-container *ngIf="isLoggedIn; else loginSection">
+        <div class="greeting-container" (click)="toggleDropdown()">
+          <span class="greeting-message">Hello, {{ firstName }}</span>
+          
+        <div class="dropdown" [class.open]="dropdownOpen">
+          <a (click)="logout()" (click)="closeDropdown()" >Logout</a>
+        </div>
+      </div>
+
+        
+        <a routerLink="/cart" class="cart-icon">
+            <img src="cart-icon.png" alt="Cart Icon">
+          </a>
+      </ng-container>
+      <ng-template #loginSection>
+        <a class="login-icon" routerLink="/login">
+          <img src="person.png" alt="Login Icon">
+        </a>
+      </ng-template>
+    </div>
+  </nav>
+</header>

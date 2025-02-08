@@ -1,0 +1,51 @@
+<section class="hero">
+  <div class="text-container">
+    <h1>Discover the Latest Apple Announcements</h1>
+    <p>Discover the latest in Apple innovation and technology. Stay informed on the newest releases, cutting-edge features, and top-rated products from Apple. Whether you're looking for powerful performance, sleek design, or seamless integration with your favorite devices, there's something new for everyone. Be at the forefront of technology and elevate your experience with Apple’s newest offerings. Explore, learn, and enjoy the future of tech today.</p>
+  </div>
+  <button class="btn-96"><span>Learn More</span></button>
+
+  <div class="img-container">
+    <img src="Apple_announces.png" alt="Apple Announcer" routerLink=":products">
+  </div>
+</section>
+
+
+<div class="shell">
+  <div class="container-fluid">
+    <div class="items-title">
+      <h1> Featured Items </h1>
+    </div>
+    <div class="row">
+      <div class="col-md-3" *ngFor="let item of items; let i = index">
+        <div class="wsk-cp-product">
+          <div class="wsk-cp-img">
+            <img [src]="item.image" [alt]="item.name" class="img-responsive" />
+          </div>
+          <div class="wsk-cp-text">
+            <div class="category">
+              <span>Apple Product</span>
+            </div>
+            <div class="title-product">
+              <h2>{{ item.name }}</h2>
+            </div>
+              <p class="short-description">
+                {{ item.shortDescription }}
+                <span *ngIf="item.showFullDescription" class="full-description">
+                  {{ item.fullDescription }}
+                </span>
+                <a href="javascript:void(0)" id="read-more-{{ i }}" class="read-more" (click)="toggleDescription(i)">
+                  {{ item.readMoreText }}
+                </a>
+              </p>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="show-more">
+    <button class="show-more-button" routerLink="/products"> Show More</button>
+  </div>

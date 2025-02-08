@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="price">
+        <h1>Awesome, that's ${{ totalAmount }}!</h1>
+    </div>
+    <div class="card__container">
+        <div class="card">
+            <div class="payment-options">
+                <div class="payment-option paypal">
+                    <label for="pp" class="payment-label">
+                        <input id="pp" type="radio" name="payment" [(ngModel)]="selectedPayment" value="paypal" (change)="togglePaypalButton()" class="payment-radio"/>
+                        <img class="payment-icon" src="paypal.png" alt="PayPal" />
+                        PayPal
+                    </label>
+                </div>
+                <div class="payment-option credit">
+                    <label for="cd" class="payment-label">
+                        <input id="cd" type="radio" name="payment" [(ngModel)]="selectedPayment" value="credit" (change)="togglePaypalButton()" class="payment-radio"/>
+                        <img class="payment-icon" src="visa.png" alt="Visa" />
+                        <img class="payment-icon" src="mastercard.png" alt="MasterCard" />
+                        Debit/Credit Card
+                    </label>
+                </div>
+            </div>
+            <div class="row cardholder">
+                <div class="info">
+                    <label for="cardholdername">Name</label>
+                    <input placeholder="e.g. Richard Bovell" [(ngModel)]="cardholderName" id="cardholdername" type="text" />
+                </div>
+            </div>
+            <div class="row number">
+                <div class="info">
+                    <label for="cardnumber">Card Number</label>
+                    <input [(ngModel)]="cardNumber" id="cardnumber" type="text" pattern="[0-9]{16,19}" maxlength="19" placeholder="8888-8888-8888-8888"/>
+                </div>
+            </div>
+            <div class="row details">
+                <div class="left">
+                    <label for="expiry-month">Expiry</label>
+                    <select [(ngModel)]="expiryMonth" id="expiry-month">
+                        <option value="">MM</option>
+                        <option *ngFor="let month of months" [value]="month">{{ month }}</option>
+                    </select>
+                    <select [(ngModel)]="expiryYear" id="expiry-year">
+                        <option value="">YYYY</option>
+                        <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+                    </select>
+                </div>
+                <div class="right">
+                    <label for="cvv">CVC/CVV</label>
+                    <input [(ngModel)]="cvv" type="text" maxlength="4" placeholder="123"/>
+                </div>
+            </div>
+            <div class="button">
+                <button (click)="confirmPayment()">Confirm and Pay</button>
+                <button *ngIf="showPaypalButton" (click)="goToPaypal()">Go to PayPal</button>
+            </div>
+        </div>
+    </div>
+  </div>
+  

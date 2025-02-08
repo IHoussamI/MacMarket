@@ -1,0 +1,140 @@
+body {
+  font-family: 'Nunito', sans-serif;
+}
+
+.home {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f8f8f8;
+}
+.contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.contact-text {
+  font-size: 36px;
+  font-weight: bold;
+  color: rgb(0, 0, 0); 
+  text-decoration: none;
+}
+
+.contact-text.us {
+  color: #C24641;
+  margin-left: 5px; 
+}
+.container {
+  max-width: 1200px;
+  width: 100%;
+  background: white;
+  padding: 40px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+.form {
+  width: 100%;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.input-block {
+  margin-bottom: 20px;
+}
+
+.input, .textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+
+.submit-block {
+  width: 100%;
+}
+
+.submit {
+  width: 100%;
+  padding: 15px;
+  background-color: #C24641;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.submit:hover {
+  background-color: #c24541de;
+}
+
+.contact-info {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.contact-head {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+
+
+.social-links {
+  display: flex;
+  justify-content: center;
+}
+
+.social-links a {
+  margin: 0 10px;
+}
+
+.social-icon {
+  width: 30px;
+  height: 30px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+  
+  .input, .textarea, .submit {
+    font-size: 14px;
+  }
+
+  .contact-head {
+    font-size: 20px;
+  }
+
+  .contact-subhead {
+    font-size: 14px;
+  }
+
+  .social-icon {
+    width: 24px;
+    height: 24px;
+  }
+}

@@ -1,0 +1,28 @@
+<section class="cart">
+    <h1>Your Shopping Cart</h1>
+    <div *ngIf="cartItems.length === 0">
+        <p>Your cart is empty.</p>
+    </div>
+    <div *ngFor="let item of cartItems" class="cart-item">
+        <div class="item-details">
+            <input type="checkbox" [(ngModel)]="item.selected" />
+            <img  alt="{{ item.productName }}" class="item-image" />
+            <div class="item-info">
+                <h2>{{ item.productName }}</h2>
+                <p>Price: {{ item.price }} DH</p>
+                <label for="quantity-{{ item.productId }}">Quantity:</label>
+                <input 
+                    type="number" 
+                    id="quantity-{{ item.productId }}" 
+                    [(ngModel)]="item.quantity" 
+                    min="1" 
+                />
+            </div>
+        </div>
+        <button (click)="removeItem(item.productId)" class="remove-btn">Remove</button>
+    </div>
+    
+    <div class="total">
+        <h2>Total Amount: {{ totalAmount }} DH</h2>
+    </div>
+</section>

@@ -1,0 +1,49 @@
+<div class="home">
+  <div class="container">
+    <div class="contact">
+      <a class="contact-text">Contact</a>
+      <a class="contact-text us">Us</a>
+    </div>
+    <div *ngIf="submissionStatus === 'none'; else submitted">
+      <form class="form" (ngSubmit)="submitForm()">
+        <div class="form-wrapper">
+          <div class="input-container">
+            <div class="input-block">
+              <input class="input" id="name" [(ngModel)]="form.name" name="name" placeholder="Full Name" required>
+            </div>
+            <div class="input-block">
+              <input class="input" id="email" [(ngModel)]="form.email" name="email" placeholder="Email" required>
+            </div>
+            <div class="input-block">
+              <input class="input" id="phone" [(ngModel)]="form.phone" name="phone" placeholder="Phone Number" required>
+            </div>
+            <div class="input-block">
+              <textarea class="textarea" [(ngModel)]="form.message" name="message" placeholder="What’s on your mind?" required></textarea>
+            </div>
+          </div>
+          
+          <div class="submit-block">
+            <button class="submit" type="submit">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <ng-template #submitted>
+      <div *ngIf="submissionStatus === 'success'; else error">
+        <p>Message sent successfully!</p>
+      </div>
+    </ng-template>
+    <ng-template #error>
+      <p>An error occurred while sending the message.</p>
+    </ng-template>
+    <div class="contact-info">
+      <p class="contact-head">Get in Touch with us</p>
+      <div class="social-links">
+        <a href="htttp:/google.com"><img class="social-icon" src="https://workik-widget-assets.s3.amazonaws.com/Footer1-83/v1/images/Icon-twitter.png"></a>
+        <a href="#"><img class="social-icon" src="https://workik-widget-assets.s3.amazonaws.com/Footer1-83/v1/images/Icon-facebook.png"></a>
+        <a href="#"><img class="social-icon" src="https://workik-widget-assets.s3.amazonaws.com/Footer1-83/v1/images/Icon-google.png"></a>
+        <a href="#"><img class="social-icon" src="https://workik-widget-assets.s3.amazonaws.com/Footer1-83/v1/images/Icon-instagram.png"></a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<section class="products">
+  <div class="discount">
+      <h1 class="discount-text"> GET YOUR 50% DISCOUNT NOW </h1>
+  </div>
+
+  <div class="parallax">
+      <img class="shopping-cart" src="pexels-anna-nekrashevich-8534162.jpg" alt="shopping image">
+  </div>
+
+  <div class="text-container">
+      <h1>GET START YOUR FAVORITE <br>SHOPPING ITEMS</h1>
+      <button class="shop-button"> Buy Now</button>
+  </div>
+</section>
+<section class="items-list">
+    <div class="items-title">
+        <h1> Our Items </h1>
+    </div>
+    <div class="row">
+      
+        <div class="col-md-3" *ngFor="let item of items; let i = index">
+          <div class="wsk-cp-product">
+            <div class="wsk-cp-img">
+              <img [src]="item.image" [alt]="item.name" class="img-responsive"  />
+            </div>
+            <div class="wsk-cp-text">
+              <div class="category">
+                <span>Apple Product</span>
+              </div>
+              <div class="title-product">
+                <h2>{{ item.name }}</h2>
+              </div>
+                <p class="short-description">
+                  {{ item.shortDescription }}
+                  <span *ngIf="item.showFullDescription" class="full-description">
+                    {{ item.fullDescription }}
+                  </span>
+                  <a href="javascript:void(0)" id="read-more-{{ i }}" class="read-more" (click)="toggleDescription(i)">
+                    {{ item.readMoreText }}
+                  </a>
+                </p>
+              </div>
+              <div class="card-footer">
+                <div class="wcf-left">
+                  <span class="old-price">{{ item.oldPrice }} DH</span>
+                  <span class="new-price">{{ item.newPrice }} DH</span>
+                </div>
+                <div class="wcf-right">
+                  <button (click)="addToCart(item.id, 1)" class="buy-btn">
+                    <img src="add-to-basket.png" alt="Add to Cart" class="icon">
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+</section>

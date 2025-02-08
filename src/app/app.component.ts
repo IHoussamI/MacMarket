@@ -1,13 +1,21 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule } from '@angular/router'; 
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterOutlet } from '@angular/router'; 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
+  imports: [
+    RouterModule,
+    CommonModule,
+    FormsModule,
+    RouterOutlet  
+  ]
 })
 export class AppComponent {
-  title = 'ecommerce-frontend';
+  title = 'e-commerce';
 }
