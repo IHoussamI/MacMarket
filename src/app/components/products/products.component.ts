@@ -84,7 +84,7 @@ export class ProductsComponent implements OnInit {
     item.readMoreText = item.showFullDescription ? 'Read Less' : 'Read More';
   }
 
-  addToCart(productId: string, quantity: number) {
+  addToCart(productId: number, quantity: number) {
     const token = this.authService.getToken();
     const headers = new HttpHeaders({
         'Authorization': `Bearer ${token}`

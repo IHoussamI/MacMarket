@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { BehaviorSubject, catchError, Observable, of } from 'rxjs';
 import { AuthService } from '../app/Auth.service/auth.service';
 import { CartItem } from '../app/models/CartItem.model';
 
@@ -30,9 +30,20 @@ export class CartService {
     return this.http.delete(`${this.apiUrl}/remove/${productId}`, { headers });
 }
 
-  addToCart(product: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/add`, product);
-  }
+addToCart(productId: number, quantity: number): Observable<any> {
+  const url = 'http://localhost:8080/api/v1/cartItem/item/add';
+  const params = {
+    productId: productId.toString(),
+    quantity: quantity.toString()
+  };
+  return this.http.post<any>(url, null, { params, withCredentials: true })
+    .pipe(
+      catchError(error => {
+        console.error('Error adding to cart:', error);
+        return of(null); 
+      })
+    );
+}
   
   payForItems(selectedItems: CartItem[]): Observable<any> {
     console.log('Mock payment for items:', selectedItems);

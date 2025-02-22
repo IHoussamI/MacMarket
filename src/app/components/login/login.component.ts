@@ -24,7 +24,6 @@ export class LoginComponent implements OnInit {
     ngOnInit() {
       this.isLoggedIn = this.authService.isAuthenticated();
       if (this.isLoggedIn) {
-        // Redirect user if needed
       }
     }
 
@@ -36,27 +35,27 @@ export class LoginComponent implements OnInit {
         password: this.password
     };
 
-    console.log('Attempting to log in with credentials:', credentials); // Log credentials
+    console.log('Attempting to log in with credentials:', credentials);
 
     this.authService.login(credentials).subscribe(
         (response: any) => {
-            console.log('Login response received:', response); // Log the response
+            console.log('Login response received:', response); 
 
             if (response.token) {
-                localStorage.setItem('jwtToken', response.token); // Save token
-                console.log('Token saved to localStorage:', response.token); // Log token
+                localStorage.setItem('jwtToken', response.token); 
+                console.log('Token saved to localStorage:'); 
             } else {
-                console.error('No token found in response'); // Log error if no token
+                console.error('No token found in response'); 
             }
 
-            localStorage.setItem('firstName', response.firstname); // Save first name
-            console.log('First name saved to localStorage:', response.firstname); // Log first name
+            localStorage.setItem('firstName', response.firstname); 
+            console.log('First name saved to localStorage:', response.firstname); 
 
-            this.router.navigate(['/home']); // Redirect to home
+            this.router.navigate(['/home']); 
         },
         (error: any) => {
-            console.error('Login failed with error:', error); // Log error
-            this.errorMessage = 'Login failed: ' + error.message; // Show error message
+            console.error('Login failed with error:', error); 
+            this.errorMessage = 'Login failed: ' + error.message; 
         }
     );
 }

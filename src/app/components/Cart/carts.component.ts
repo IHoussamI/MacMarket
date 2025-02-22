@@ -88,10 +88,15 @@ calculateTotalAmount() {
     );
 }
 
-  addToCart(product: any) {
-      this.cartService.addToCart(product).subscribe(() => {
-          this.loadCartItems();
-      });
+addToCart(productId: number, quantity: number) {
+    this.cartService.addToCart(productId, quantity).subscribe(
+      () => {
+        console.log('Product added to cart successfully');
+      },
+      (error) => {
+        console.error('Failed to add product to cart:', error);
+      }
+    );
   }
  /* payForSelectedItems() {
     const selectedItems = this.cartItems.filter(item => item.selected);

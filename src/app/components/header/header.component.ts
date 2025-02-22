@@ -1,14 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { AuthService } from '../../Auth.service/auth.service'; // Import your AuthService
+import { AuthService } from '../../Auth.service/auth.service'; 
 
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [RouterModule, CommonModule],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css'] // Corrected styleUrls
+  styleUrls: ['./header.component.css'] 
 })
 export class HeaderComponent implements OnInit {
   menuOpen = false;
