@@ -2,6 +2,11 @@
 
 MacMarket est une plateforme de commerce électronique construite avec Angular, Spring Boot, et MySQL. Ce projet vise à offrir une expérience d'achat intuitive, efficace et conviviale, en se concentrant sur des solutions fiables et évolutives qui simplifient les transactions en ligne et améliorent la vie quotidienne.
 
+## Project Structure
+- [Frontend (Angular)](../../tree/feature/FRONT-END)
+- [Backend (Spring Boot)](../../tree/feature/BACK-END)
+
+
 Fonctionnalités
 Interface Utilisateur : Conçue avec Angular pour une expérience utilisateur fluide et réactive.
 Backend Robuste : Utilise Spring Boot pour gérer la logique métier et les opérations de base de données.
@@ -74,6 +79,8 @@ Pour toute question ou problème, n'hésitez pas à ouvrir une issue sur le dép
 - Assurez-vous que tous les liens et commandes sont corrects et à jour.
 
 N'hésitez pas à me faire savoir si vous souhaitez apporter des modifications ou des ajouts !
+
+
 
 
 
