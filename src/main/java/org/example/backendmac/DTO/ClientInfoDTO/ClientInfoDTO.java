@@ -1,0 +1,16 @@
+package org.example.backendmac.DTO.ClientInfoDTO;
+
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class ClientInfoDTO {
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String city;
+}

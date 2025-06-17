@@ -1,0 +1,8 @@
+package org.example.backendmac.Services.product;
+
+import org.example.backendmac.Entities.product.Product;
+
+public interface iProductService {
+        Product getProductById(Long productId);
+    }
+
