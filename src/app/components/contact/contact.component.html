@@ -1,0 +1,93 @@
+<div class="contact-page">
+  <div class="contact-container">
+    <div class="contact-header">
+      <h1 class="contact-title">Contact <span class="berry-highlight">Us</span></h1>
+      <p class="contact-subtitle">Have questions or feedback? We'd love to hear from you!</p>
+    </div>
+
+    <div *ngIf="submissionStatus === 'none'; else submitted">
+      <form class="contact-form" (ngSubmit)="submitForm()">
+        <div class="form-grid">
+          <div class="form-group">
+            <input class="form-input" id="name" [(ngModel)]="form.name" name="name" placeholder="Full Name" required>
+            <div class="input-underline"></div>
+          </div>
+          
+          <div class="form-group">
+            <input class="form-input" id="email" [(ngModel)]="form.email" name="email" placeholder="Email Address" required>
+            <div class="input-underline"></div>
+          </div>
+          
+          <div class="form-group">
+            <input class="form-input" id="phone" [(ngModel)]="form.phone" name="phone" placeholder="Phone Number" required>
+            <div class="input-underline"></div>
+          </div>
+          
+          <div class="form-group full-width">
+            <textarea class="form-textarea" [(ngModel)]="form.message" name="message" placeholder="What's on your mind?" required></textarea>
+            <div class="input-underline"></div>
+          </div>
+        </div>
+        
+        <button class="submit-btn" type="submit">
+          Send Message
+          <svg class="send-icon" viewBox="0 0 24 24">
+            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path>
+          </svg>
+        </button>
+      </form>
+    </div>
+
+    <ng-template #submitted>
+      <div *ngIf="submissionStatus === 'success'; else error" class="submission-message success">
+        <svg class="message-icon" viewBox="0 0 24 24">
+          <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+          <path d="M22 4L12 14.01l-3-3"></path>
+        </svg>
+        <h3>Message Sent Successfully!</h3>
+        <p>We'll get back to you soon.</p>
+      </div>
+    </ng-template>
+
+    <ng-template #error>
+      <div class="submission-message error">
+        <svg class="message-icon" viewBox="0 0 24 24">
+          <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"></path>
+          <line x1="12" y1="9" x2="12" y2="13"></line>
+          <line x1="12" y1="17" x2="12.01" y2="17"></line>
+        </svg>
+        <h3>Oops! Something Went Wrong</h3>
+        <p>Please try again later.</p>
+      </div>
+    </ng-template>
+
+    <div class="social-section">
+      <h3 class="social-title">Connect With Us</h3>
+      <div class="social-icons">
+        <a href="#" class="social-link">
+          <svg class="social-icon" viewBox="0 0 24 24">
+            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+          </svg>
+        </a>
+        <a href="#" class="social-link">
+          <svg class="social-icon" viewBox="0 0 24 24">
+            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+          </svg>
+        </a>
+        <a href="#" class="social-link">
+          <svg class="social-icon" viewBox="0 0 24 24">
+            <path d="M17 2H7a5 5 0 00-5 5v10a5 5 0 005 5h10a5 5 0 005-5V7a5 5 0 00-5-5zm-3 15a3 3 0 110-6 3 3 0 010 6zm1-10a1 1 0 11-1-1 1 1 0 011 1z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+        </a>
+        <a href="#" class="social-link">
+          <svg class="social-icon" viewBox="0 0 24 24">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

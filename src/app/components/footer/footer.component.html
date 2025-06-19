@@ -1,0 +1,84 @@
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-grid">
+      <!-- Company Column -->
+      <div class="footer-column">
+        <h4 class="footer-heading">Company</h4>
+        <ul class="footer-links">
+          <li><a routerLink="/about" class="footer-link">About Us</a></li>
+          <li><a [routerLink]="['/careers']" class="footer-link">Careers</a></li>
+          <li><a [routerLink]="['/privacy']" class="footer-link">Privacy Policy</a></li>
+          <li><a [routerLink]="['/terms']" class="footer-link">Terms of Service</a></li>
+        </ul>      
+      </div>
+      
+      <!-- Help Column -->
+      <div class="footer-column">
+        <h4 class="footer-heading">Help</h4>
+        <ul class="footer-links">
+          <li><a [routerLink]="['/faq']" class="footer-link">FAQ</a></li>
+          <li><a [routerLink]="['/contact']" class="footer-link">Contact Us</a></li>
+          <li><a [routerLink]="['/returns']" class="footer-link">Returns</a></li>
+          <li><a [routerLink]="['/shipping']" class="footer-link">Shipping Information</a></li>
+        </ul>
+      </div>
+      
+      <!-- Shop Column -->
+      <div class="footer-column">
+        <h4 class="footer-heading">Shop</h4>
+        <ul class="footer-links">
+          <li><a [routerLink]="['/products']" class="footer-link">Products</a></li>
+          <li><a [routerLink]="['/new-arrivals']" class="footer-link">New Arrivals</a></li>
+          <li><a [routerLink]="['/sales']" class="footer-link">Sales</a></li>
+          <li><a [routerLink]="['/gift-cards']" class="footer-link">Gift Cards</a></li>
+        </ul>
+      </div>
+      
+      <!-- Social Media Column -->
+      <div class="footer-column">
+        <h4 class="footer-heading">Follow Us</h4>
+        <div class="social-links">
+          <a href="https://www.instagram.com" target="_blank" class="social-link instagram">
+            <svg viewBox="0 0 24 24" class="social-icon">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+          <a href="https://www.facebook.com" target="_blank" class="social-link facebook">
+            <svg viewBox="0 0 24 24" class="social-icon">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+            </svg>
+          </a>
+          <a href="https://www.twitter.com" target="_blank" class="social-link twitter">
+            <svg viewBox="0 0 24 24" class="social-icon">
+              <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com" target="_blank" class="social-link linkedin">
+            <svg viewBox="0 0 24 24" class="social-icon">
+              <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+        </div>
+        <div class="newsletter">
+          <h5 class="newsletter-title">Subscribe to our newsletter</h5>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your email" class="newsletter-input">
+            <button type="submit" class="newsletter-button">
+              <svg viewBox="0 0 24 24" class="send-icon">
+                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p class="copyright">&copy; 2023 MacMarket. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

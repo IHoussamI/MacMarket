@@ -1,0 +1,68 @@
+<section class="cart-section">
+    <div class="cart-container">
+      <div class="cart-header">
+        <h1 class="cart-title">
+          <svg class="cart-icon" viewBox="0 0 24 24">
+            <path d="M17 18a2 2 0 11-4 0 2 2 0 014 0zM7 18a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            <path d="M.5 1h2.028a2 2 0 011.942 1.515L6.5 13h15"></path>
+            <path d="M21 13H6.5L4.47 2.515A2 2 0 002.528 1H.5"></path>
+          </svg>
+          Your Shopping Cart
+        </h1>
+        <p *ngIf="cartItems.length === 0" class="empty-cart-message">
+          Your cart is empty. Start shopping to add items!
+        </p>
+      </div>
+  
+      <div *ngFor="let item of cartItems" class="cart-item">
+        <div class="item-select">
+          <label class="checkbox-container">
+            <input type="checkbox" [(ngModel)]="item.selected" class="item-checkbox">
+            <span class="checkmark"></span>
+          </label>
+        </div>
+        
+        <img [src]="item.imageUrl" alt="{{ item.productName }}" class="item-image">
+        
+        <div class="item-details">
+          <h2 class="item-name">{{ item.productName }}</h2>
+          <p class="item-price">{{ item.price | currency:'DH ' }}</p>
+          
+          <div class="quantity-control">
+            <button (click)="decreaseQuantity(item)" class="quantity-btn minus">-</button>
+            <input type="number" [(ngModel)]="item.quantity" min="1" class="quantity-input" (change)="updateQuantity(cartId, item.productId || 0, item.quantity || 1)">
+            <button (click)="increaseQuantity(item)" class="quantity-btn plus">+</button>
+          </div>
+        </div>
+        
+        <button (click)="removeItem(cartId, item.productId || 0)" class="remove-btn">
+          <svg class="trash-icon" viewBox="0 0 24 24">
+            <path d="M3 6h18"></path>
+            <path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"></path>
+          </svg>
+        </button>
+      </div>
+  
+      <div class="cart-summary">
+        <div class="summary-row">
+          <span>Subtotal:</span>
+          <span>{{ subtotal | currency:'DH ' }}</span>
+        </div>
+        <div class="summary-row">
+          <span>Shipping:</span>
+          <span>{{ shippingCost | currency:'DH ' }}</span>
+        </div>
+        <div class="summary-row total">
+          <span>Total:</span>
+          <span>{{ totalAmount | currency:'DH ' }}</span>
+        </div>
+        
+        <button class="checkout-btn" [disabled]="cartItems.length === 0">
+          Proceed to Checkout
+          <svg class="arrow-icon" viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
