@@ -12,7 +12,6 @@ import java.util.stream.Collectors;
 
 public class OrderMapper {
 
-    // Entity -> DTO
     public static OrderDTO toDTO(Order order) {
         if (order == null) return null;
 
@@ -39,7 +38,6 @@ public class OrderMapper {
                 order.getAddress(),
                 order.getPhone(),
                 clientInfoDTO
-// Comes from Order
         );
     }
 
@@ -56,7 +54,6 @@ public class OrderMapper {
         );
     }
 
-    // DTO -> Entity (if you need it)
     public static Order toEntity(OrderDTO orderDTO) {
         if (orderDTO == null) return null;
 
@@ -66,13 +63,12 @@ public class OrderMapper {
         order.setTotalAmount(orderDTO.getTotalAmount());
         order.setAddress(orderDTO.getDeliveryAddress()); // ✅ deliveryAddress → address
         order.setPhone(orderDTO.getPhone());
-        // User mapping is skipped here — usually set in service
 
         if (orderDTO.getOrderItems() != null) {
             List<OrderItem> orderItems = orderDTO.getOrderItems().stream()
                     .map(OrderMapper::toEntity)
                     .collect(Collectors.toList());
-            order.setOrderItems(Set.copyOf(orderItems));  // convert list to set
+            order.setOrderItems(Set.copyOf(orderItems));
         }
 
         return order;
@@ -87,7 +83,6 @@ public class OrderMapper {
         orderItem.setUnitPrice(dto.getUnitPrice());
         orderItem.setTotalPrice(dto.getTotalPrice());
 
-        // Product mapping is skipped here — usually set in service
 
         return orderItem;
     }

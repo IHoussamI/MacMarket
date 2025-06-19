@@ -25,9 +25,7 @@ public class ProductService implements iProductService {
                 .orElseThrow(() -> new RuntimeException("Product not found with id: " + productId));
     }
 
-    // Save a new product
 
-    // Get all products
     public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
@@ -47,13 +45,11 @@ public class ProductService implements iProductService {
             String fileName = UUID.randomUUID() + "_" + file.getOriginalFilename();
             Path path = Paths.get(uploadsDir + fileName);
 
-            // Create directory if not exists
             Files.createDirectories(path.getParent());
 
-            // Save the file
             Files.write(path, file.getBytes());
 
-            return  fileName; // URL to access image
+            return  fileName;
         } catch (IOException e) {
             throw new RuntimeException("Failed to store image", e);
         }
@@ -61,7 +57,6 @@ public class ProductService implements iProductService {
 
 
 
-    // Update a product
     public Product updateProduct(Long productId, ProductRequestDTO dto) {
         return productRepository.findById(productId).map(product -> {
             product.setName(dto.getName());
@@ -69,7 +64,6 @@ public class ProductService implements iProductService {
             product.setPrice(dto.getPrice());
             product.setDescription(dto.getDescription());
 
-            // Only update image if a new one is provided
             if (dto.getImageUrl() != null) {
                 product.setImageUrl(dto.getImageUrl());
             }
@@ -78,7 +72,6 @@ public class ProductService implements iProductService {
         }).orElse(null);
     }
 
-    // Delete a product
     public boolean deleteProduct(Long productId) {
         if (productRepository.existsById(productId)) {
             productRepository.deleteById(productId);

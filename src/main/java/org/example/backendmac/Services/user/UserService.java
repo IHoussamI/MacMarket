@@ -27,12 +27,10 @@ public class UserService implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }
 
-    // Save a new user
     public Users saveUser(Users user) {
         return userRepository.save(user);
     }
 
-    // Get all users
     public List<Users> getAllUsers() {
         return userRepository.findAll();
     }
@@ -44,7 +42,7 @@ public class UserService implements UserDetailsService {
 
     public Users updateUser(Long id, Users userDetails) {
         if (userRepository.existsById(id)) {
-            userDetails.setId(id); // Set the ID for the existing user
+            userDetails.setId(id);
             return userRepository.save(userDetails);
         }
         return null;

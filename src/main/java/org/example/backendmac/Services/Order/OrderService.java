@@ -23,7 +23,7 @@ public class OrderService {
 
     private final OrderRepository orderRepository;
     private final UserService userService;
-    private final CartService cartService; // ✅ Injected CartService
+    private final CartService cartService;
 
     public Order createOrderFromCart(Long cartId) {
         Cart cart = cartService.getCart(cartId);
@@ -46,7 +46,7 @@ public class OrderService {
             return orderItem;
         }).toList();
 
-        order.setOrderItems(new HashSet<>(orderItems)); // ✅ FIXED HERE
+        order.setOrderItems(new HashSet<>(orderItems));
 
         BigDecimal totalAmount = orderItems.stream()
                 .map(OrderItem::getTotalPrice)

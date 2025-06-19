@@ -24,7 +24,6 @@ public class AdminController {
         long totalOrders = orderRepository.count();
         BigDecimal totalRevenue = orderRepository.getTotalRevenue();
 
-        // Avoid null revenue (e.g., if no orders exist)
         if (totalRevenue == null) {
             totalRevenue = BigDecimal.ZERO;
         }

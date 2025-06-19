@@ -22,7 +22,7 @@ public class ImageController {
 
             if (resource.exists()) {
                 return ResponseEntity.ok()
-                        .contentType(MediaType.IMAGE_PNG) // or IMAGE_JPEG
+                        .contentType(MediaType.IMAGE_PNG)
                         .body(resource);
             } else {
                 return ResponseEntity.notFound().build();

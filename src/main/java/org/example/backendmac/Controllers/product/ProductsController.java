@@ -37,7 +37,7 @@ public class ProductsController {
         dto.setPrice(price);
         dto.setOldprice(oldprice);
         dto.setDescription(description);
-        dto.setImageUrl(imageUrl); // save the returned image path
+        dto.setImageUrl(imageUrl);
 
         Product createdProduct = productService.saveProduct(dto);
         return new ResponseEntity<>(createdProduct, HttpStatus.CREATED);

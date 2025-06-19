@@ -58,14 +58,11 @@ public class CartService implements iCartService{
 
     @Override
     public Long initialiseNewCart(Long userId) {
-        // Check if the user already has a cart
         Optional<Cart> existingCart = cartRepository.findByUserId(userId);
 
         if (existingCart.isPresent()) {
-            // Return the existing cart ID
             return existingCart.get().getId();
         } else {
-            // Create a new cart for the user
             Users user = userService.getUserById(userId);
             Cart newCart = new Cart();
             newCart.setUser(user);

@@ -39,11 +39,9 @@ public class CartItemService implements iCartItemService {
                     return newItem;
                 });
 
-        // Update quantity
         cartItem.setQuantity(cartItem.getQuantity() + quantity);
-        cartItem.setTotalPrice(); // Ensure this method calculates the total price correctly
+        cartItem.setTotalPrice();
 
-        // Add to cart and save
         cart.addCartItem(cartItem);
         cartItemRepository.save(cartItem);
         cartRepository.save(cart);
