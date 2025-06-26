@@ -1,8 +1,10 @@
 package org.example.backendmac.Controllers.Order;
 
 import lombok.RequiredArgsConstructor;
-import org.example.backendmac.DTO.Order.OrderDTO;
-import org.example.backendmac.DTO.mapper.OrderMapper;
+import org.example.backendmac.DTOs.Order.OrderDTO;
+import org.example.backendmac.DTOs.SalesDTO.SalesDataDTO;
+import org.example.backendmac.DTOs.TopProductDTO.TopProductDTO;
+import org.example.backendmac.DTOs.mapper.OrderMapper;
 import org.example.backendmac.Services.Order.OrderService;
 import org.example.backendmac.models.Order.Order;
 import org.springframework.http.HttpStatus;
@@ -19,12 +21,21 @@ public class OrderController {
 
     private final OrderService orderService;
 
+    @GetMapping()
+    public ResponseEntity<List<OrderDTO>> getOrders() {
+        List<OrderDTO> Orders = orderService.getAllOrders();
+        return new ResponseEntity<>(Orders, HttpStatus.OK);
+    }
+
+
     @PostMapping("/create/{cartId}")
     public ResponseEntity<?> createOrder(@PathVariable Long cartId) {
         Order order = orderService.createOrderFromCart(cartId);
         OrderDTO orderDTO = OrderMapper.toDTO(order);
         return ResponseEntity.ok(orderDTO);
     }
+
+
 
     @GetMapping("/user/{userId}")
     public ResponseEntity<List<OrderDTO>> getOrdersByUser(@PathVariable Long userId) {
@@ -42,9 +53,13 @@ public class OrderController {
         return ResponseEntity.ok(dto);
     }
 
-    @GetMapping()
-    public ResponseEntity<List<OrderDTO>> getOrders() {
-        List<OrderDTO> Orders = orderService.getAllOrders();
-        return new ResponseEntity<>(Orders, HttpStatus.OK);
+    @GetMapping("/statistics/sales-over-time")
+    public List<SalesDataDTO> getSalesOverTime() {
+        return orderService.getSalesOverTime();
+    }
+
+    @GetMapping("/top-products")
+    public List<TopProductDTO> getTopSellingProducts() {    
+        return orderService.getTopSellingProducts();
     }
     }

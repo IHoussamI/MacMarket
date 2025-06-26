@@ -1,8 +1,10 @@
 package org.example.backendmac.Services.Order;
 
 import lombok.RequiredArgsConstructor;
-import org.example.backendmac.DTO.Order.OrderDTO;
-import org.example.backendmac.DTO.mapper.OrderMapper;
+import org.example.backendmac.DTOs.Order.OrderDTO;
+import org.example.backendmac.DTOs.SalesDTO.SalesDataDTO;
+import org.example.backendmac.DTOs.TopProductDTO.TopProductDTO;
+import org.example.backendmac.DTOs.mapper.OrderMapper;
 import org.example.backendmac.Repositories.Order.OrderRepository;
 import org.example.backendmac.Services.cart.CartService;
 import org.example.backendmac.Services.user.UserService;
@@ -73,5 +75,13 @@ public class OrderService {
     public Order getOrderById(Long orderId) {
         return orderRepository.findById(orderId)
                 .orElseThrow(() -> new RuntimeException("Order not found"));
+    }
+
+    public List<SalesDataDTO> getSalesOverTime() {
+        return orderRepository.getSalesGroupedByDate();
+    }
+
+    public List<TopProductDTO> getTopSellingProducts() {
+        return orderRepository.findTopSellingProducts();
     }
 }

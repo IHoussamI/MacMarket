@@ -1,4 +1,4 @@
-package org.example.backendmac.DTO.OrderItemDTO;
+package org.example.backendmac.DTOs.OrderItemDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

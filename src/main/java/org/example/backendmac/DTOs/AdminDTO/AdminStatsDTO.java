@@ -1,4 +1,4 @@
-package org.example.backendmac.DTO.AdminDTO;
+package org.example.backendmac.DTOs.AdminDTO;
 
 import lombok.Getter;
 

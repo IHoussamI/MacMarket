@@ -18,8 +18,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.example.backendmac.Others.Role.Permission.*;
-import static org.example.backendmac.Others.Role.Role.ADMIN;
-import static org.example.backendmac.Others.Role.Role.MANAGER;
+import static org.example.backendmac.Others.Role.Role.*;
 import static org.springframework.http.HttpMethod.*;
 import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
 
@@ -37,19 +36,49 @@ public class SecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(AbstractHttpConfigurer::disable)
-                .cors(cors -> cors.configurationSource(corsConfigurationSource())) // Make sure this is added
-                .authorizeHttpRequests(req ->
-                        req.requestMatchers("/auth/**","/cartItem/**","/images/**","/orders/**","/users/**","/admin/**","/products/**")
-                                .permitAll()
-                                .requestMatchers(GET,"/products").permitAll()
-                                .requestMatchers("/admin/**").hasRole(ADMIN.name())
-                                .requestMatchers("/management/**").hasAnyRole(ADMIN.name(), MANAGER.name())
-                                .requestMatchers(GET, "/management/**").hasAnyAuthority(ADMIN.name(), MANAGER.name())
-                                .requestMatchers(POST, "/management/**").hasAnyAuthority(ADMIN_CREATE.name(), MANAGER_CREATE.name())
-                                .requestMatchers(PUT, "/management/**").hasAnyAuthority(ADMIN_UPDATE.name(), MANAGER_UPDATE.name())
-                                .requestMatchers(DELETE, "/management/**").hasAnyAuthority(ADMIN_DELETE.name(), MANAGER_DELETE.name())
-                                .anyRequest()
-                                .authenticated()
+                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+                .authorizeHttpRequests(req -> req
+
+                        // PUBLIC
+                        .requestMatchers("/auth/**", "/images/**").permitAll()
+
+                        // CART (USER)
+                        .requestMatchers(POST, "/cart/create").hasRole(USER.name())
+                        .requestMatchers(GET, "/cart/{cartId}").hasRole(USER.name())
+                        .requestMatchers(DELETE, "/cart/{cartId}/clear").hasRole(USER.name())
+                        .requestMatchers(GET, "/cart/{cartId}/totalprice").hasRole(USER.name())
+
+                        // CART ITEM (USER)
+                        .requestMatchers(POST, "/cartItem/item/add").hasRole(USER.name())
+                        .requestMatchers(GET, "/cartItem").hasRole(USER.name())
+                        .requestMatchers(DELETE, "/cartItem/cart/{cartId}/item/{productId}").hasRole(USER.name())
+                        .requestMatchers(PUT, "/cartItem/cart/{cartId}/item/{productId}/update").hasRole(USER.name())
+
+                        //PRODUCT
+                        .requestMatchers(GET, "/products").permitAll()
+                        .requestMatchers(GET,"/products/{id}").permitAll()
+                        .requestMatchers(POST,"/create").hasRole((ADMIN.name()))
+                        .requestMatchers(PUT,"/{id}").hasRole(ADMIN.name())
+                        .requestMatchers(DELETE,"/{id}").hasRole(ADMIN.name())
+
+
+                        // ORDERS
+                        .requestMatchers(POST, "/orders/create/**").hasRole(USER.name())
+                        .requestMatchers(GET, "/orders").hasRole(ADMIN.name())
+                        .requestMatchers(GET, "/orders/user/**").hasRole(ADMIN.name())
+                        .requestMatchers(GET, "/orders/{orderId}").hasRole(ADMIN.name())
+                        .requestMatchers(GET, "/orders/statistics/sales-over-time").hasRole(ADMIN.name())
+                        .requestMatchers(GET, "/orders/top-products").hasRole(ADMIN.name())
+
+                        // USERS
+                        .requestMatchers(POST, "/users").permitAll()
+                        .requestMatchers(GET, "/users").permitAll()
+                        .requestMatchers(GET, "/users/{id}").hasRole(ADMIN.name())
+                        .requestMatchers(PUT, "/users/{id}").hasRole(ADMIN.name())
+                        .requestMatchers(DELETE, "/users/{id}").hasRole(ADMIN.name())
+
+                        // DEFAULT RULE
+                        .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(STATELESS))
                 .authenticationProvider(authenticationProvider)

@@ -20,23 +20,9 @@ public enum Role {
                   Permission.ADMIN_READ,
                   Permission.ADMIN_UPDATE,
                   Permission.ADMIN_DELETE,
-                  Permission.ADMIN_CREATE,
-                  Permission.MANAGER_READ,
-                  Permission.MANAGER_UPDATE,
-                  Permission.MANAGER_DELETE,
-                  Permission.MANAGER_CREATE
-          )
-  ),
-  MANAGER(
-          Set.of(
-                  Permission.MANAGER_READ,
-                  Permission.MANAGER_UPDATE,
-                  Permission.MANAGER_DELETE,
-                  Permission.MANAGER_CREATE
-          )
+                  Permission.ADMIN_CREATE
   )
-
-  ;
+  );
 
   private final Set<Permission> permissions;
 

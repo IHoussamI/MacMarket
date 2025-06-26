@@ -1,9 +1,9 @@
-package org.example.backendmac.DTO.Order;
+package org.example.backendmac.DTOs.Order;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.example.backendmac.DTO.ClientInfoDTO.ClientInfoDTO;
-import org.example.backendmac.DTO.OrderItemDTO.OrderItemDTO;
+import org.example.backendmac.DTOs.ClientInfoDTO.ClientInfoDTO;
+import org.example.backendmac.DTOs.OrderItemDTO.OrderItemDTO;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

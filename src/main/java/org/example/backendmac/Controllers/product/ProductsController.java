@@ -1,7 +1,6 @@
 package org.example.backendmac.Controllers.product;
 
-import jakarta.validation.Valid;
-import org.example.backendmac.DTO.ProductDTO.ProductRequestDTO;
+import org.example.backendmac.DTOs.ProductDTO.ProductRequestDTO;
 import org.example.backendmac.Services.product.ProductService;
 import org.example.backendmac.models.product.Product;
 import org.springframework.beans.factory.annotation.Autowired;

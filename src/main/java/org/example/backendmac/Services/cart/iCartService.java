@@ -9,7 +9,7 @@ public interface iCartService {
     void clearCart(Long id);
     BigDecimal getTotalPrice(Long id);
     Long initialiseNewCart(Long userId);
-    Cart getCartByUserId(Long userId);
+    Cart getCartByUserIdIfExists(Long userId);
 
 
 }

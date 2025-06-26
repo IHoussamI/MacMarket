@@ -37,7 +37,6 @@ public class CartItemController {
                                                    @RequestParam Long productId,
                                                    @RequestParam int quantity) {
         try {
-            // Step 1: Check if we have authentication at all
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             System.out.println("=== DEBUG INFO ===");
             System.out.println("Authentication object: " + authentication);
@@ -48,12 +47,10 @@ public class CartItemController {
                         .body(new ApiResponse("No authentication found", null));
             }
 
-            // Step 2: Check what type the principal is
             Object principal = authentication.getPrincipal();
             System.out.println("Principal class: " + principal.getClass().getName());
             System.out.println("Principal value: " + principal.toString());
 
-            // Step 3: Try to cast and see what happens
             if (principal instanceof Users) {
                 System.out.println("Principal is Users - SUCCESS!");
                 Users user = (Users) principal;
@@ -94,22 +91,27 @@ public class CartItemController {
 
     @GetMapping()
     public ResponseEntity<?> getCartItemsForUser() {
-        try {
-            Users user = (Users) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            Long userId = user.getId();
+        Users user = (Users) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Long userId = user.getId();
 
-            Cart cart = cartService.getCartByUserId(userId);
-            Set<CartItem> items = cartItemService.getCartItemsByCartId(cart.getId());
+        Cart cart = cartService.getCartByUserIdIfExists(userId); // return null if not found
 
-            Map<String, Object> response = new HashMap<>();
-            response.put("cartId", cart.getId());
-            response.put("items", items);
-
-            return ResponseEntity.ok(response);
-        } catch (ResourceNotFoundException e) {
-            return ResponseEntity.status(NOT_FOUND).body(new ApiResponse(e.getMessage(), null));
+        if (cart == null) {
+            Map<String, Object> emptyResponse = new HashMap<>();
+            emptyResponse.put("cartId", null);
+            emptyResponse.put("items", Set.of());
+            return ResponseEntity.ok(emptyResponse);
         }
+
+        Set<CartItem> items = cartItemService.getCartItemsByCartId(cart.getId());
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("cartId", cart.getId());
+        response.put("items", items);
+
+        return ResponseEntity.ok(response);
     }
+
 
     @DeleteMapping("/cart/{cartId}/item/{productId}")
     public ResponseEntity<ApiResponse> removeCartItem(@PathVariable Long cartId,

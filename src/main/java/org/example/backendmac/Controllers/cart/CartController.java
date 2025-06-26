@@ -18,7 +18,6 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/cart")
-@PreAuthorize("hasRole('USER')")
 public class CartController {
 
     private final iCartService cartService;

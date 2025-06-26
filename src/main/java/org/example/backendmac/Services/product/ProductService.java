@@ -1,7 +1,7 @@
 package org.example.backendmac.Services.product;
 
 import lombok.RequiredArgsConstructor;
-import org.example.backendmac.DTO.ProductDTO.ProductRequestDTO;
+import org.example.backendmac.DTOs.ProductDTO.ProductRequestDTO;
 import org.example.backendmac.models.product.Product;
 import org.example.backendmac.Repositories.Product.ProductRepository;
 import org.springframework.stereotype.Service;

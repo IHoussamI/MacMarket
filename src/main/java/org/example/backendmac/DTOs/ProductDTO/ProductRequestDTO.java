@@ -1,4 +1,4 @@
-package org.example.backendmac.DTO.ProductDTO;
+package org.example.backendmac.DTOs.ProductDTO;
 
 
 

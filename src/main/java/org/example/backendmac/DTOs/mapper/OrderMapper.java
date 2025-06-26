@@ -1,8 +1,8 @@
-package org.example.backendmac.DTO.mapper;
+package org.example.backendmac.DTOs.mapper;
 
-import org.example.backendmac.DTO.ClientInfoDTO.ClientInfoDTO;
-import org.example.backendmac.DTO.Order.OrderDTO;
-import org.example.backendmac.DTO.OrderItemDTO.OrderItemDTO;
+import org.example.backendmac.DTOs.ClientInfoDTO.ClientInfoDTO;
+import org.example.backendmac.DTOs.Order.OrderDTO;
+import org.example.backendmac.DTOs.OrderItemDTO.OrderItemDTO;
 import org.example.backendmac.models.Order.Order;
 import org.example.backendmac.models.OrderItem.OrderItem;
 

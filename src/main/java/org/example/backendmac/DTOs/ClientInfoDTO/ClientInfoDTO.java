@@ -1,4 +1,4 @@
-package org.example.backendmac.DTO.ClientInfoDTO;
+package org.example.backendmac.DTOs.ClientInfoDTO;
 
 
 import lombok.AllArgsConstructor;

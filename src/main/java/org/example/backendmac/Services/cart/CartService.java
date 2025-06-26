@@ -30,10 +30,10 @@ public class CartService implements iCartService{
     }
 
     @Override
-    public Cart getCartByUserId(Long userId) {
-        return cartRepository.findByUserId(userId)
-                .orElseThrow(() -> new ResourceNotFoundException("Cart not found for user id " + userId));
+    public Cart getCartByUserIdIfExists(Long userId) {
+        return cartRepository.findByUserId(userId).orElse(null);
     }
+
 
 
     @Transactional

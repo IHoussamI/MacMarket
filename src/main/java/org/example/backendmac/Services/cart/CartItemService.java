@@ -47,11 +47,15 @@ public class CartItemService implements iCartItemService {
         cartRepository.save(cart);
     }
 
+
+
     @Override
     public Set<CartItem> getCartItemsByCartId(Long cartId) {
         Cart cart = cartService.getCart(cartId);
         return cart.getItems();
     }
+
+
 
     @Override
     public void removeCartItem(Long cartId, Long productId) {
