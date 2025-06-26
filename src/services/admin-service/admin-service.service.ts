@@ -8,7 +8,7 @@ import { UserDTO } from '../../app/models/user.dto';
   providedIn: 'root'
 })
 export class AdminService {
-  private apiUrl = 'http://localhost:8080'; // adapt as needed
+  private apiUrl = 'http://localhost:8080'; 
 
   constructor(private http: HttpClient) {}
 
@@ -42,5 +42,15 @@ export class AdminService {
   updateProduct(id: number, productData: FormData): Observable<any> {
     return this.http.put(`${this.apiUrl}/products/${id}`, productData);
   }
+  updateStockStatus(id: number, outOfStock: boolean): Observable<any> {
+    return this.http.put(`${this.apiUrl}/products/${id}/stock`, { outOfStock });
+  }
+  getSalesOverTime(): Observable<{ date: string, totalSales: number }[]> {
+    return this.http.get<{ date: string, totalSales: number }[]>(
+      `${this.apiUrl}/orders/statistics/sales-over-time` 
+    );
+  }
+
+  
   
 }

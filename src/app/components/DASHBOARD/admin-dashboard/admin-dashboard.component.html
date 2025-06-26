@@ -153,4 +153,50 @@
       </table>
     </div>
   </div>
+
+  <!-- Add this after the stats-overview section -->
+<div class="section">
+  <div class="section-header">
+    <h2>Sales <span class="berry-highlight">Analytics</span></h2>
+    <div class="section-actions">
+      <button (click)="loadSalesChart(); loadProductsChart()" class="refresh-btn">
+        <svg class="refresh-icon" viewBox="0 0 24 24">
+          <path d="M23 4v6h-6M1 20v-6h6"></path>
+          <path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"></path>
+        </svg>
+        Refresh Charts
+      </button>
+    </div>
+  </div>
+
+  <div class="analytics-grid">
+    <!-- Sales Over Time Chart -->
+    <div class="analytics-card">
+      <h3>Sales Over Time <span class="badge">Last 30 Days</span></h3>
+      <div *ngIf="loading.sales" class="chart-loading">
+        <div class="loading-spinner"></div>
+      </div>
+      <div *ngIf="errors.sales" class="error-message">
+        {{errors.sales}}
+      </div>
+      <div class="chart-container">
+        <canvas id="salesChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Top Products Chart -->
+    <div class="analytics-card">
+      <h3>Top Selling Products <span class="badge">This Month</span></h3>
+      <div *ngIf="loading.topProducts" class="chart-loading">
+        <div class="loading-spinner"></div>
+      </div>
+      <div *ngIf="errors.topProducts" class="error-message">
+        {{errors.topProducts}}
+      </div>
+      <div class="chart-container">
+        <canvas id="productsChart"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
 </div>

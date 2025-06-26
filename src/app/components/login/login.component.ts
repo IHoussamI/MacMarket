@@ -23,8 +23,6 @@ export class LoginComponent implements OnInit {
 
     ngOnInit() {
       this.isLoggedIn = this.authService.isAuthenticated();
-      if (this.isLoggedIn) {
-      }
     }
 
     login() {
@@ -35,26 +33,13 @@ export class LoginComponent implements OnInit {
         password: this.password
     };
 
-    // console.log('Attempting to log in with credentials:', credentials);
-
     this.authService.login(credentials).subscribe(
         (response: any) => {
-            // console.log('Login response received:', response); 
-
-            if (response.token) {
-                localStorage.setItem('jwtToken', response.token); 
-                // console.log('Token saved to localStorage:'); 
-            } else {
-                // console.error('No token found in response'); 
+            if (response) {
+                this.router.navigate(['/home']); 
             }
-
-            localStorage.setItem('firstName', response.firstname); 
-            // console.log('First name saved to localStorage:', response.firstname); 
-
-            this.router.navigate(['/home']); 
         },
         (error: any) => {
-            // console.error('Login failed with error:', error); 
             this.errorMessage = 'Login failed: ' + error.message; 
         }
     );

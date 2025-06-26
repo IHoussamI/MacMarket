@@ -353,3 +353,57 @@ tr:hover {
     grid-template-columns: 1fr;
   }
 }
+
+/* Analytics Grid */
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.analytics-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.analytics-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+}
+
+.chart-container {
+  position: relative;
+  height: 300px;
+  width: 100%;
+}
+
+.chart-loading {
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .analytics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .analytics-card {
+    padding: 1rem;
+  }
+  
+  .chart-container {
+    height: 250px;
+  }
+}

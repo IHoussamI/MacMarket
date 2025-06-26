@@ -21,8 +21,9 @@
   <div class="container">
     <h2 class="section-title">Featured <span class="apple-gradient">Products</span></h2>
     <div class="products-grid">
-      <div class="product-card" *ngFor="let item of items; let i = index">
-        <div class="product-badge">New</div>
+      <div class="product-card" *ngFor="let item of items; let i = index" [class.out-of-stock-card]="item.isOutOfStock">
+        <div class="product-badge" *ngIf="!item.isOutOfStock">New</div>
+        <div class="product-badge out-of-stock-badge" *ngIf="item.isOutOfStock">Out of Stock</div>
         <div class="product-image-container">
           <img [src]="item.image" [alt]="item.name" class="product-image" />
         </div>
@@ -43,7 +44,7 @@
               <span class="current-price">${{ item.price }}</span>
               <span *ngIf="item.oldPrice" class="original-price">${{ item.oldPrice }}</span>
             </div>
-            <button class="add-to-cart-btn" (click)="addToCart(item.id)">
+            <button class="add-to-cart-btn" (click)="addToCart(item.id)" [disabled]="item.isOutOfStock">
               <svg class="cart-icon" viewBox="0 0 24 24">
                 <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.3 2.3c-.4.4-.7 1-.7 1.7V19a2 2 0 002 2h12"></path>
               </svg>

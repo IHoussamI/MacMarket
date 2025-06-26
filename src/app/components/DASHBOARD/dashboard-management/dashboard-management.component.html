@@ -79,16 +79,22 @@
             <th>Name</th>
             <th>Description</th>
             <th>Price</th>
+            <th>Stock Status</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let p of filteredProducts">
+          <tr *ngFor="let p of filteredProducts" [class.out-of-stock-row]="p.isOutOfStock">
             <td class="product-name">{{ p.name }}</td>
             <td class="product-desc">{{ p.description | truncate:50 }}</td>
             <td class="product-price">
               <span class="current-price">{{ p.price | currency }}</span>
               <span class="old-price" *ngIf="p.oldprice">{{ p.oldprice | currency }}</span>
+            </td>
+            <td>
+              <button (click)="toggleStockStatus(p)" [ngClass]="p.isOutOfStock ? 'stock-btn out-of-stock' : 'stock-btn in-stock'">
+                {{ p.isOutOfStock ? 'Out of Stock' : 'In Stock' }}
+              </button>
             </td>
             <td class="product-actions">
               <button (click)="editProduct(p)" class="edit-btn">

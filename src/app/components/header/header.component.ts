@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { AuthService } from '../../../services/Auth.service/auth.service'; 
+import { AuthService } from '../../../services/Auth.service/auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -10,22 +11,27 @@ import { AuthService } from '../../../services/Auth.service/auth.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'] 
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   menuOpen = false;
   firstName: string | null = null;
   isLoggedIn: boolean = false;
   dropdownOpen: boolean = false;
+  isAdmin: boolean = false;
+  private userStatusSubscription!: Subscription;
 
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
-    this.checkLoginStatus();
+    this.userStatusSubscription = this.authService.userStatus$.subscribe(status => {
+      this.isLoggedIn = status.isLoggedIn;
+      this.firstName = status.firstName;
+      this.isAdmin = status.role === 'ADMIN';
+    });
   }
 
-  checkLoginStatus() {
-    this.isLoggedIn = this.authService.isAuthenticated();
-    if (this.isLoggedIn) {
-      this.firstName = localStorage.getItem('firstName');
+  ngOnDestroy() {
+    if (this.userStatusSubscription) {
+      this.userStatusSubscription.unsubscribe();
     }
   }
 
@@ -66,10 +72,7 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     this.authService.logout();
-    this.isLoggedIn = false;
-    this.firstName = null;
     this.router.navigate(['/login']);
-    console.log('Logged out');
-        this.dropdownOpen = false;
+    this.dropdownOpen = false;
   }
 }

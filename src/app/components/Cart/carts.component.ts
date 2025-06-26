@@ -1,5 +1,5 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
-import { CartService } from '../../../services/cart.service';
+import { CartService } from '../../../services/cart/cart.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
@@ -166,6 +166,22 @@ export class CartsComponent implements OnInit {
       }
     });
   }
+
+  checkout(cartId: number) {
+    this.cartService.createOrder(cartId).subscribe({
+      next: (order) => {
+        alert('Order created successfully!');
+        // Optionally refresh cart or redirect to "My Orders" page
+        this.loadCartItems();
+      },
+      error: (err) => {
+        alert('Failed to create order.');
+        console.error(err);
+      }
+    });
+  }
+  
+  
 
   removeItem(cartId: number, productId: number): void {
     if (confirm('Are you sure you want to remove this item from your cart?')) {

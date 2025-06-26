@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { BehaviorSubject, catchError, Observable, of, throwError } from 'rxjs';
-import { AuthService } from './Auth.service/auth.service';
+import { AuthService } from '../Auth.service/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +30,13 @@ export class CartService {
       })
     );
   }
+
+  createOrder(cartId: number): Observable<any> {
+    return this.http.post(`http://localhost:8080/orders/create/${cartId}`, {}, {
+      headers: this.getAuthHeaders()
+    });
+  }
+  
 
   updateCartItemQuantity(cartId: number, productId: number, quantity: number): Observable<any> {
     const token = this.authService.getToken();

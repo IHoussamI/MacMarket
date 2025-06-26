@@ -5,9 +5,9 @@
     </div>
     <ul class="nav-links" [class.open]="menuOpen">
       <li><a routerLink="/home" (click)="closeMenu()">Home</a></li>
-      <li><a routerLink="/products" (click)="closeMenu()">Products</a></li>
       <li><a routerLink="/about-us" (click)="closeMenu()">About Us</a></li>
       <li><a routerLink="/contact" (click)="closeMenu()">Contact Us</a></li>
+      <li *ngIf="isAdmin"><a routerLink="/admin-dashboard" (click)="closeMenu()">Admin Panel</a></li>
     </ul>
     <div class="logo">
       <a class="button" routerLink="home" data-text="Awesome">
@@ -20,9 +20,14 @@
         <div class="greeting-container" (click)="toggleDropdown()">
           <span class="greeting-message">Hello, {{ firstName }}</span>
           <div class="dropdown" [class.open]="dropdownOpen">
-            <a routerLink="/profile">My Profile</a>
-            <a routerLink="/orders">My Orders</a>
-            <a (click)="logout()">Logout</a>
+            <ul>
+              <li *ngIf="isAdmin">
+                <a routerLink="/admin-dashboard" (click)="closeMenu()" class="admin-link">Admin Panel</a>
+              </li>
+              <li>
+                <a (click)="logout()">Logout</a>
+              </li>
+            </ul>
           </div>
         </div>
         <a routerLink="/cart" class="cart-icon">

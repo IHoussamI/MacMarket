@@ -25,6 +25,7 @@ export class DashboardManagementComponent implements OnInit {
     price: 0,
     oldprice: 0,
     description: '',
+    isOutOfStock: false
   };
   
 
@@ -87,6 +88,12 @@ export class DashboardManagementComponent implements OnInit {
   refreshProducts(): void {
     this.loadProducts();
   }
+  toggleStockStatus(product: any): void {
+    product.isOutOfStock = !product.isOutOfStock;
+    localStorage.setItem(`stockStatus_${product.id}`, product.isOutOfStock.toString());
+  }
+  
+  
   get selectedFileName(): string {
     return this.selectedImage ? this.selectedImage.name : '';
   }
@@ -101,6 +108,7 @@ export class DashboardManagementComponent implements OnInit {
       price: 0,
       oldprice: 0,
       description: '',
+      isOutOfStock: false
     };
     this.selectedImage = null;
     this.editMode = false;
@@ -122,7 +130,7 @@ export class DashboardManagementComponent implements OnInit {
 
     this.adminService.addProduct(formData).subscribe(() => {
       this.loadProducts();
-      this.newProduct = { name: '', price: 0, oldprice: 0, description: '' };
+      this.newProduct = { name: '', price: 0, oldprice: 0, description: '', isOutOfStock: false };
       this.selectedImage = null;
     });
   }

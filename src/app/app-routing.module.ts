@@ -11,6 +11,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { AdminDashboardComponent } from './components/DASHBOARD/admin-dashboard/admin-dashboard.component';
 import { AuthGuard } from '../services/auth-guard/auth.guard';
 import { DashboardManagementComponent } from './components/DASHBOARD/dashboard-management/dashboard-management.component';
+import { AdminGuard } from '../services/Auth.service/admin.guard';
 
 export const routes: Routes = [
   {
@@ -22,8 +23,8 @@ export const routes: Routes = [
       { path: 'contact', component: ContactComponent },
       { path: 'cart', component: CartsComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'admin-dashboard', component: AdminDashboardComponent },
-      { path: 'dashboard-management', component: DashboardManagementComponent },
+      { path: 'admin-dashboard', component: AdminDashboardComponent, canActivate: [AdminGuard] },
+      { path:'dashboard-management', component: DashboardManagementComponent, canActivate: [AdminGuard]},
       { path: 'register', component: RegisterComponent },
       { path: 'protected', component: ProtectedComponent, canActivate: [AuthGuard] },
       { path: 'test', component: TestComponent},

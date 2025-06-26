@@ -158,6 +158,20 @@ body {
   z-index: 2;
 }
 
+.out-of-stock-badge {
+  background-color: #666;
+}
+
+.out-of-stock-card {
+  opacity: 0.6;
+  pointer-events: none; /* Disables clicks on the card itself */
+}
+
+.out-of-stock-card .add-to-cart-btn {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
 .product-image-container {
   padding: 2rem;
   background: #faf9f6;
@@ -326,6 +340,11 @@ body {
 
 .view-all-btn:hover {
   background-color: rgba(194, 70, 65, 0.05);
+}
+
+.add-to-cart-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 
 @media (min-width: 768px) {

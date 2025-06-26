@@ -57,12 +57,13 @@
           <span>{{ totalAmount | currency:'DH ' }}</span>
         </div>
         
-        <button class="checkout-btn" [disabled]="cartItems.length === 0">
+        <button class="checkout-btn" [disabled]="cartItems.length === 0" (click)="checkout(cartId)">
           Proceed to Checkout
           <svg class="arrow-icon" viewBox="0 0 24 24">
             <path d="M5 12h14M12 5l7 7-7 7"></path>
           </svg>
         </button>
+        
       </div>
     </div>
   </section>

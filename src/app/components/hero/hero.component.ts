@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ProductService } from '../../../services/product-service/product.service.service';
-import { CartService } from '../../../services/cart.service';
+import { CartService } from '../../../services/cart/cart.service';
 import { AuthService } from '../../../services/Auth.service/auth.service';
 
 interface ProductDetails {
@@ -38,10 +38,17 @@ export class HeroComponent implements OnInit {
     
     this.productService.getProducts().subscribe({
       next: (products) => {
-        this.items = products.map((product: any) => ({
-          ...product,
-          image: `http://localhost:8080/images/${product.imageUrl || product.image}`
-        }));
+        this.items = products.map((product: any) => {
+          const storedStatus = localStorage.getItem(`stockStatus_${product.id}`);
+          const isOutOfStock = storedStatus ? storedStatus === 'true' : product.isOutOfStock;
+        
+          return {
+            ...product,
+            isOutOfStock,
+            image: `http://localhost:8080/images/${product.imageUrl || product.image}`
+          };
+        });
+        
         this.loading = false;
         this.usingFallback = false;
       },
