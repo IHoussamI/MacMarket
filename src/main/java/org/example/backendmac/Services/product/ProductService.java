@@ -1,7 +1,9 @@
 package org.example.backendmac.Services.product;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.example.backendmac.DTOs.ProductDTO.ProductRequestDTO;
+import org.example.backendmac.Repositories.OrderItem.OrderItemRepository;
 import org.example.backendmac.models.product.Product;
 import org.example.backendmac.Repositories.Product.ProductRepository;
 import org.springframework.stereotype.Service;
@@ -18,6 +20,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class ProductService implements iProductService {
     private final ProductRepository productRepository;
+    private final OrderItemRepository orderItemRepository;
 
     @Override
     public Product getProductById(Long productId) {
@@ -72,9 +75,12 @@ public class ProductService implements iProductService {
         }).orElse(null);
     }
 
+    @Transactional
     public boolean deleteProduct(Long productId) {
         if (productRepository.existsById(productId)) {
+            orderItemRepository.deleteByProductId(productId);
             productRepository.deleteById(productId);
+
             return true;
         }
         return false;
