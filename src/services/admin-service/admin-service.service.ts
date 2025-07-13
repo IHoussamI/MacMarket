@@ -50,7 +50,5 @@ export class AdminService {
       `${this.apiUrl}/orders/statistics/sales-over-time` 
     );
   }
-
-  
   
 }
