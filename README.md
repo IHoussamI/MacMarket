@@ -1,27 +1,39 @@
-# EcommerceFrontend
+# MacMarket — E-commerce Platform
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.7.
+MacMarket is a full-featured e-commerce web application built with modern technologies. It offers a seamless shopping experience for customers and a powerful admin dashboard to manage products, orders, and users efficiently.
 
-## Development server
+## 🛠 Key Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### For Customers
+- 🔐 Secure authentication with JWT for both clients and admins  
+- 🛒 Shopping cart with quantity update and product removal  
+- 🏠 Home page showcasing available products  
+- ℹ️ About Us and Contact Us pages for better user engagement  
 
-## Code scaffolding
+### For Admins
+- 📊 Admin dashboard displaying total products, orders, revenue, and customer orders  
+- 📈 Sales charts over time and top-selling products visualization  
+- 🛠 Product management page to add, update, or remove products  
+- 👥 User management including access control and product availability (in stock / out of stock)  
+- 🔍 Advanced product search engine  
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 🚀 Technologies Used
+- Frontend: Angular 18+  
+- Backend: Spring Boot 3+ with Java 17  
+- Authentication: JWT (JSON Web Tokens)  
+- Database: MySQL  
 
-## Build
+## ⚡ Quick Start
+```bash
+git clone https://github.com/IHoussamI/MacMarket.git
+cd MacMarket
+npm install
+ng serve
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+📫 Contact
+Email: Mesk.hsm@gmail.com
+LinkedIn: https://www.linkedin.com/in/mesk-houssam/
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+🤝 Contributions
+Contributions are welcome! Please open an issue before submitting pull requests to discuss any changes.
